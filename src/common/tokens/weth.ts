@@ -57,6 +57,16 @@ export class WETH {
     };
   }
 
+  static POLYGON() {
+    return {
+      chainId: ChainId.POLYGON,
+      contractAddress: '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270',
+      decimals: 18,
+      symbol: 'WETH',
+      name: 'Wrapped Ether',
+    };
+  }
+
   /**
    * Get WETH token info by chain id
    * @param chainId The chain id
@@ -73,6 +83,8 @@ export class WETH {
         return this.GORLI();
       case ChainId.KOVAN:
         return this.KOVAN();
+      case ChainId.POLYGON:
+        return this.POLYGON();
       default:
         throw new SushiswapError(
           `${chainId} is not allowed`,
